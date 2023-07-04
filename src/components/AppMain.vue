@@ -15,6 +15,7 @@ export default {
         }
     },
     created() {
+        // qua prendo i primi 10 pokemon 
         axios.get(endpoint)
             .then(res => {
                 store.pokemons = res.data.docs;
@@ -25,6 +26,7 @@ export default {
             });
     },
     methods: {
+        // qua prendo i primi 10 pokemon del tipo che ho selezionato e portato qua grazie a emit 
         filterPokemonsByType(selectedType) {
             const apiUrl = selectedType ? `${endpoint}?eq[type1]=${selectedType}` : endpoint;
 
